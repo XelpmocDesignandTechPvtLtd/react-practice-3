@@ -1,0 +1,18 @@
+what contract do I want to test?
+
+1. Is the onChange spitting out the values in the right format?
+2. Is the DropDown using another dropdown component?
+3. Does that DropDown have an onchange?
+4. On change of the first dropdown, does state get set?
+5. On change of the second, does state get set properly?
+6. Depending on teh first, are the options to teh second correct?
+7.
+
+What do I need to include?
+
+What do I not want to test?
+
+Do I want tests for the DropDown component --> nah I can just include this honestly.
+
+
+

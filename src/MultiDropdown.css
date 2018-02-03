@@ -1,0 +1,7 @@
+.MultiDropdown-dropdown {
+  display: flex;
+}
+
+.MultiDropdown-label {
+  width: 100px;
+}
