@@ -16,3 +16,7 @@ The expected output is
 // when the second is selected as well
 [{selectedValue1: someValue, selectedValue2: someOtherValue}]
 ```
+
+## Example
+
+![](https://github.com/XelpmocDesignandTechPvtLtd/react-practice-3/blob/master/src/example.gif)
