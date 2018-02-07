@@ -14,17 +14,26 @@ export default class MultiDropdown extends Component {
       }
     );
   }
-  onChange(selecetedValue,selectedElement) {
-    if(selecetedValue){
-      selecetedValue = selecetedValue.value;
+  onChange(selectedValue,selectedElement) {
+    if(selectedValue){
       if(selectedElement == "selectedValue1"){
-        this.setState({selectedValue1:selecetedValue});
-        this.setState({selectedValue2:null});
+        this.onCountryChange(selectedValue.value);
       }
       else if(selectedElement == "selectedValue2"){
-        this.setState({selectedValue2:selecetedValue});
+        this.onCityChange(selectedValue.value);
       }
     }
+  }
+  clearValue (e) {
+		this.select.setInputValue('');
+	}
+  onCountryChange(selectedValue1){
+    this.setState({selectedValue1,selectedValue2:null});
+    this.props.onChange({selectedValue1,selectedValue2:null})
+  }
+  onCityChange(selectedValue2){
+    this.setState({selectedValue2});
+    this.props.onChange({selectedValue1:this.state.selectedValue1,selectedValue2})
   }
   getCities(){
     if(this.state.selectedValue1){
@@ -48,7 +57,6 @@ export default class MultiDropdown extends Component {
     return countryNames;
   }
   render() {
-    this.state.selectedValue1 && this.props.onChange(this.state) 
     return (
             <div className="MultiDropdown">
               <div className="MultiDropdown-dropdown">
