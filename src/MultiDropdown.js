@@ -2,17 +2,14 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as countriesCities from "countries-cities";
 import "./MultiDropdown.css";
-import _ from "lodash";
 import CustomDropdown from "./CustomDropdown";
 export default class MultiDropdown extends Component {
   constructor(props) {
     super(props);
-    this.state = (
-      {
+    this.state ={
         "selectedValue1":null,
         "selectedValue2":null,
       }
-    );
   }
   onChange(selectedValue,selectedElement) {
     if(selectedValue){
