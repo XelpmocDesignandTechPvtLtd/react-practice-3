@@ -43,14 +43,20 @@ export default class MultiDropdown extends Component {
   }
 
   getCities() {
-    let city = countriesCities.getCities().map(selectValue => {
-      return {
-        value: selectValue,
-        label: selectValue
-      };
-    });
-    return city;
+    if (this.state.country) {
+      let city = countriesCities
+        .getCities(this.state.country)
+        .map(selectValue => {
+          return {
+            value: selectValue,
+            label: selectValue
+          };
+        });
+      return city;
+    }
+    return [];
   }
+
   render() {
     return (
       <div className="MultiDropdown">
@@ -63,7 +69,7 @@ export default class MultiDropdown extends Component {
         </div>
         <div>
           <CustomDropdown
-            options={this.getCountries()}
+            options={this.getCities()}
             onChange={val => this.onChange(val, "cities")}
             value={this.state.cities}
           />
