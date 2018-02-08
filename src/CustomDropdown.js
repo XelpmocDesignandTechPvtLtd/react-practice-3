@@ -12,16 +12,18 @@ export default class CustomDropdown extends Component {
   render() {
     return (
       <div className="CustomDropdown">
-        <Select {...this.props} />
+        <Select {...this.props}/>
       </div>
     );
   }
 }
 
 CustomDropdown.propTypes = {
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  options:PropTypes.array,
+  clearable:PropTypes.bool
 };
 
 CustomDropdown.defaultProps = {
-  onChange: () => {}
+  onChange: () => {},
 };
