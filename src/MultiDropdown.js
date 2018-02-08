@@ -15,23 +15,20 @@ export default class MultiDropdown extends Component {
       cities: null
     };
   }
-
   selectCountries(country) {
     this.setState({ country });
     this.props.onChange({ country, cities: null });
   }
-
-  selectgetCities(cities) {
+  selectGetCities(cities) {
     this.setState({ cities });
     this.props.onChange({ country: this.state.country, cities });
   }
-
   onChange(val, countryName) {
     if (val) {
       if (countryName == "country") {
         this.selectCountries(val.value);
       } else if (countryName == "cities") {
-        this.selectgetCities(val.value);
+        this.selectGetCities(val.value);
       }
     }
   }
