@@ -60,6 +60,5 @@ export default class MultiDropdown extends Component {
 
 MultiDropdown.propTypes = {
   onChange:PropTypes.func,
-  city:PropTypes.string,
-  country:PropTypes.string,
 };
+
