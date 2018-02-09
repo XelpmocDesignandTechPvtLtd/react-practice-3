@@ -5,3 +5,13 @@
 .MultiDropdown-label {
   width: 100px;
 }
+.country{
+  display: flex;
+  display: -webkit-flex;
+  align-items:center;
+}
+.city{
+  display: flex;
+  display: -webkit-flex;
+  align-items:center;
+}
