@@ -20,22 +20,12 @@ export default class MultiDropdown extends Component {
       };
     });
   }
-  getCountry(selectedValue1){
-  if(selectedValue1){
-    this.setState({'selectedValue1':selectedValue1.value,'selectedValue2':null},()=>{ this.props.onChange(this.state)})
-     }
-    }
-    getCity(selectedValue2){
-    if(selectedValue2){
-    this.setState({'selectedValue1':this.state.selectedValue1,'selectedValue2':selectedValue2.value},()=>{ this.props.onChange(this.state)})
-    }
-  }
   onChange(value) {
     if(value.selectedValue1){
-      this.getCountry(value.selectedValue1)
-    }
+      this.setState({'selectedValue1':value.selectedValue1.value,'selectedValue2':null},()=>{ this.props.onChange(this.state)})
+     }
     if(value.selectedValue2){
-      this.getCity(value.selectedValue2)
+      this.setState({'selectedValue1':this.state.selectedValue1,'selectedValue2':value.selectedValue2.value},()=>{ this.props.onChange(this.state)})
     }
   }
   render() {
