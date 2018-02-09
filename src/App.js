@@ -11,19 +11,12 @@ class App extends Component {
     };
   }
   onChange(val) {
-    if(val.country){
-      console.log({"selectedValue1":val.country.value,"selectedValue2":null})
-      this.setState({country:val.country.value});
-      }
-    if(val.city){
-      console.log({"selectedValue1":this.state.country,"selectedValue2":val.city.value})
-      this.setState({city:val.city.value});
-      }
+    console.log(val)
   }
   render() {
     return (
       <div className="App">
-        <MultiDropdown onChange={val => this.onChange(val)} country={this.state.country} city={this.state.city} />
+         <MultiDropdown onChange={val => this.onChange(val)} />
       </div>
     );
   }

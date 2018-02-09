@@ -10,8 +10,8 @@ export default class MultiDropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      country:null,
-      city:null,
+      selectedValue1:null,
+      selectedValue2:null,
     };
     this.countryOptions = _.map(countriesCities.getCountries(), country => {
       return {
@@ -20,15 +20,28 @@ export default class MultiDropdown extends Component {
       };
     });
   }
+  getCountry(selectedValue1){
+  if(selectedValue1){
+    this.setState({'selectedValue1':selectedValue1.value,'selectedValue2':null},()=>{ this.props.onChange(this.state)})
+     }
+    }
+    getCity(selectedValue2){
+    if(selectedValue2){
+    this.setState({'selectedValue1':this.state.selectedValue1,'selectedValue2':selectedValue2.value},()=>{ this.props.onChange(this.state)})
+    }
+  }
   onChange(value) {
-    if(this.props.onChange){
-    this.props.onChange(value);
+    if(value.selectedValue1){
+      this.getCountry(value.selectedValue1)
+    }
+    if(value.selectedValue2){
+      this.getCity(value.selectedValue2)
     }
   }
   render() {
     let citiesForCountry;
-    if (this.props.country) {
-      citiesForCountry=_.map(countriesCities.getCities(this.props.country),city=>{
+    if (this.state.selectedValue1) {
+      citiesForCountry=_.map(countriesCities.getCities(this.state.selectedValue1),city=>{
         return{
           label:city,
           value:city
@@ -41,15 +54,15 @@ export default class MultiDropdown extends Component {
          Country
            <CustomDropdown 
            options={this.countryOptions}
-           value={this.props.country}
-           onChange={country => this.onChange({ country })}/>
+           value={this.state.selectedValue1}
+           onChange={selectedValue1 => this.onChange({ selectedValue1 })}/>
         </div>
         <div className="city">
            City
           <CustomDropdown  
            options={citiesForCountry}
-           value={this.props.city} 
-           onChange={city => this.onChange({ city })}/>
+           value={this.state.selectedValue2} 
+           onChange={selectedValue2 => this.onChange({ selectedValue2 })}/>
         </div>
     </div>);
   }
