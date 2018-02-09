@@ -21,24 +21,20 @@ export default class MultiDropdown extends Component {
     });
   }
   getCountryList(value) {
-    if (value.country) {
-      this.setState({ country: value.country.value, city: "" }, () => {
-        this.props.onChange(this.state);
-      });
-    }
+    this.setState({ country: value.country.value, city: "" }, () => {
+      this.props.onChange(this.state);
+    });
   }
   getCityList(value) {
-    if (value.city) {
-      this.setState({ city: value.city.value }, () => {
-        this.props.onChange(this.state);
-      });
-    }
+    this.setState({ city: value.city.value }, () => {
+      this.props.onChange(this.state);
+    });
   }
   onChange(value) {
     if (value.country) {
       this.getCountryList(value);
     }
-    if (value.city && this.state.country) {
+    if (value.city) {
       this.getCityList(value);
     }
   }
@@ -54,18 +50,18 @@ export default class MultiDropdown extends Component {
     }
     return (
       <div className="MultiDropdown">
-          <CustomDropdown
-            placeholder="Select Country"
-            options={this.countryList}
-            value={this.state.country}
-            onChange={country => this.onChange({ country })}
-          />
-          <CustomDropdown
-            placeholder="Select City"
-            options={cityList}
-            value={this.state.city}
-            onChange={city => this.onChange({ city })}
-          />
+        <CustomDropdown
+          placeholder="Select Country"
+          options={this.countryList}
+          value={this.state.country}
+          onChange={country => this.onChange({ country })}
+        />
+        <CustomDropdown
+          placeholder="Select City"
+          options={cityList}
+          value={this.state.city}
+          onChange={city => this.onChange({ city })}
+        />
       </div>
     );
   }
