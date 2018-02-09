@@ -54,22 +54,18 @@ export default class MultiDropdown extends Component {
     }
     return (
       <div className="MultiDropdown">
-        <div>
           <CustomDropdown
             placeholder="Select Country"
             options={this.countryList}
             value={this.state.country}
             onChange={country => this.onChange({ country })}
           />
-        </div>
-        <div>
           <CustomDropdown
             placeholder="Select City"
             options={cityList}
             value={this.state.city}
             onChange={city => this.onChange({ city })}
           />
-        </div>
       </div>
     );
   }
